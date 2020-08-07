@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="type writing script using jquery, jquery to prepare type writing script, how to create type writing script using jquery, create your own jquery scripts, jquery sample typing game, sample jquery typing game">
+    <meta name="author" content="Naveenkumar Gunasekaran">
+    <title>Type writing script using jQuery | Demo Javadomain.in</title>
+	<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery JS -->
+    <script src="js/jquery.min.js"></script>
+	<!-- BootStrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+	<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    
+	<!-- header starts -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Demo</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="http://www.javadomain.in">Javadomain.in</a></li>         
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<!--/. header ends -->
+
+	  
+	  <div class="container" style="margin-top:100px;">
+	  <div class="row">
+	  <div style="height:100px;">
+     <span id="go">&raquo; Restart</span>
+<div id="block" style="margin-top:20px;">Javadomain.in!</div>
+ </div>
+ 
+ 
+<script>
+var score = 0;
+isWrong = false;
+$(document).ready(function(){
+	$('span#go').click(function(){
+	$( "#block" ).show();
+	isWrong = false;
+	console.log("go clicked now");
+	$('#userValue').focus();
+	animateText();
+	});
+	
+	
+animateText();
+$('#userValue').focus();
+$("#userValue").keypress(function(event) {
+    if (event.which == 13) {
+        validate();
+     }
+});
+
+function validate(){
+txtValue = $('#userValue').val();
+animValue = document.getElementById('block');
+animValueTxt = animValue.innerHTML;
+if(txtValue==animValueTxt){
+isWrong = false;
+console.log("Correct......."+isWrong);
+score = score+10;
+animateText();
+$('span#score').html(score);
+}else{
+isWrong = true;
+console.log("Wrong......."+isWrong);
+ score = 0;
+  $( "#block" ).hide();
+}
+$('#userValue').val("");
+
+}
+
+function makeid()
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
+var arr = ["India is my country", "Javadomain.in is programming blog!", "Google is a search engine","Whatsapp World!","MirthBees is a great software company" ];
+function getRandom(){
+  var rand = Math.random();
+  return arr[Math.floor(rand *arr.length)];
+}
+ 
+
+	
+function animateText(){
+if(isWrong===false){
+  $( "#block" ).animate({
+    width: "70%",
+    opacity: 0.4,
+    marginLeft: "0.6in",
+    fontSize: "3em",
+    borderWidth: "10px"
+  },5000,function () { $(this).removeAttr('style'); $( "div#block" ).html(makeid());$('#userValue').focus();} );
+  }
+}
+
+function javascript_abort()
+{
+   throw new Error('This is not an error. This is just to abort javascript');
+}
+})
+</script>
+</div>
+
+<div class="row" style="height:100px;">
+Enter the above visible value: [Case Sensitive]<br/>
+Your Score:<span id="score"></span><br/>
+<input type="text" id="userValue" style="width:400px;height:50px;"/>
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Single post - 2 (www.javadomain.in) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1630317480583873"
+     data-ad-slot="1031934524"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class="row">
+Rules:
+Do not see keyboard & type.
+<br/>
+1. If your score is greater than 100, you are ok.
+<br/>
+2. If your score is greater than 300, you are medium.
+<br/>
+3. If your score is greater than 500, you are ultimate
+
+</div>
+
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Single post - 2 (www.javadomain.in) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1630317480583873"
+     data-ad-slot="1031934524"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+ 
+  </body>
+</html>
